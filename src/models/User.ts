@@ -12,9 +12,6 @@ class User {
   id: string;
 
   @Column()
-  avatar: string;
-
-  @Column()
   name: string;
 
   @Column()
@@ -22,6 +19,9 @@ class User {
 
   @Column()
   password: string;
+
+  @Column()
+  avatar: string;
 
   @CreateDateColumn({ type: "timestamp" })
   created_at: Date;
