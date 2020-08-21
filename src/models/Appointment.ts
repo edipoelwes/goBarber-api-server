@@ -16,7 +16,7 @@ class Appointment {
   id: string;
 
   @Column()
-  providerId: string;
+  provider_id: string;
 
   @ManyToOne(() => User)
   @JoinColumn({ name: "provider_id" })
@@ -26,10 +26,10 @@ class Appointment {
   date: Date;
 
   @CreateDateColumn({ type: "timestamp" })
-  createdAt: Date;
+  created_at: Date;
 
   @UpdateDateColumn({ type: "timestamp" })
-  updatedAt: Date;
+  updated_at: Date;
 }
 
 export default Appointment;
