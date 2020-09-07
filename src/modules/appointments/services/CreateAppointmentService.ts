@@ -2,13 +2,11 @@
 import { startOfHour } from "date-fns";
 import { getCustomRepository } from "typeorm";
 
-import { request } from "express";
+import AppError from "@shared/errors/AppError";
 
-import AppError from "../errors/AppError";
+import Appointment from "@modules/appointments/infra/typeorm/entities/Appointment";
 
-import Appointment from "../models/Appointment";
-import AppointmentsRepository from "../repositories/AppointmentsRepository";
-import User from "../models/User";
+import AppointmentsRepository from "@modules/appointments/repositories/AppointmentsRepository";
 
 interface Request {
   provider_id: string;
@@ -16,7 +14,6 @@ interface Request {
 }
 
 class CreateAppointmentService {
-  // eslint-disable-next-line camelcase
   public async execute({ date, provider_id }: Request): Promise<Appointment> {
     const appointmentsRepository = getCustomRepository(AppointmentsRepository);
 
